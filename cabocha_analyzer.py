@@ -12,7 +12,7 @@ class CabochaAnalyzer():
     new_chunks = []
     new_chunk = None
     for line in lines:
-      line = line.strip()
+      line = line.rstrip()
       elements = re.split(r'[\t, ]', line)
       # 終端記号
       if elements[0] == 'EOS':
