@@ -27,5 +27,6 @@ Temporary Items
 
 # For this repository
 outputs/
+play/
 
 __pycache__

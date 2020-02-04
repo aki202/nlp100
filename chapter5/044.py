@@ -22,7 +22,7 @@ def chunk_map(sentences: [Chunk]) -> Dot:
     graph.add_edge(edge)
   return graph
 
-graph = chunk_map(sentences[8])
+graph = chunk_map(sentences[5])
 #graph = chunk_map(max(sentences, key=lambda s: len(s)))
 graph.write_png('outputs/044.png')
 Image.open('outputs/044.png').show()
