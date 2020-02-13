@@ -22,7 +22,7 @@ def sentences():
 def words():
   for sentence in sentences():
     for word in re.split(' ', sentence):
-      word = re.sub('[^\w]', '', word)
+      word = re.sub('[^\w-]', '', word)
       if len(word) == 0: next
       yield word
-    yield "\n"
+    yield None
