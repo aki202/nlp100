@@ -30,3 +30,4 @@ outputs/
 play/
 
 __pycache__
+node_modules/
