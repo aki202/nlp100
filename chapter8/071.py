@@ -9,6 +9,8 @@ class TestIsStopWord(unittest.TestCase):
     self.assertTrue(utilities.is_stop_word('NOT'))
     self.assertTrue(utilities.is_stop_word('yourselves'))
     self.assertTrue(utilities.is_stop_word('YOURSELVES'))
+    self.assertTrue(utilities.is_stop_word('.'))
+    self.assertTrue(utilities.is_stop_word(','))
 
   def test_is_stop_word_false(self):
     self.assertFalse(utilities.is_stop_word('apple'))
