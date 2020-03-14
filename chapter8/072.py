@@ -1,6 +1,7 @@
 import utilities
 import re
 import collections
+from stemming.porter2 import stem
 
 raw_features = []
 rare_words = []
@@ -24,7 +25,7 @@ for w, i in counter.items():
 # 重複削除
 raw_features = list(set(raw_features))
 
-# ストップワードか低頻度の単語を取り除く
+# ストップワード、低頻度、数字、記号 を取り除く
 for feature in raw_features:
   # ストップワードを除く
   if utilities.is_stop_word(feature): continue
@@ -32,8 +33,14 @@ for feature in raw_features:
   if feature in rare_words: continue
   # 数字と記号を除く
   if not re.match('^[a-zA-Z]+$', feature): continue
-  features.append(feature)
+  # ステミング
+  stemed = stem(feature)
+  # 1文字以下は除外
+  if len(stemed) <= 1: continue
 
+  features.append(stemed)
+
+features.sort()
 print('features', features, len(features))
 
 with open('chapter8/features.txt', 'w') as fp:
