@@ -49,5 +49,5 @@ class LogisticRegression:
     accuracy = (TP + TN) / (TP + TN + FP + FN) # 正解率
     precision = TP / (TP + FP) # 適合率、予測の中に正解がどれだけ含まれているか
     recall = TP / (TP + FN) # 再現率、正解全体がどれだけ予測されているか
-    f1 = (2 * accuracy * precision) / (accuracy + recall)
+    f1 = (2 * precision * recall) / (precision + recall)
     return [accuracy, precision, recall, f1]
